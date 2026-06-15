@@ -1,5 +1,5 @@
 import express from "express";
-import cors from "cors";
+import "./config/dotenv.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -17,11 +17,18 @@ const PORT = process.env.PORT || 3001;
 // API routes: GET /comps and GET /comps/:id
 app.use("/comps", compsRouter);
 
-app.use("/public", express.static("./public"));
-app.use("/scripts", express.static("./public/scripts"));
+// Serve static frontend assets from the built client output in production.
+app.use(express.static(path.join(__dirname, "public")));
 
-// My Catchall route for any unmatched requests (e.g. /foo, /comps/999).
-// Apparently More recent Express doesn't allow * in the path for app.use, so we have to do this instead.
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get(/^\/\d+$/, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "compDetails.html"));
+});
+
+// Catchall for other non-API routes.
 app.use((req, res) => {
   res.status(404).send("<h1>404 No Page Found</h1>");
 });

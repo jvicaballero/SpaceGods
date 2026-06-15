@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "TFT Set 17 Comps — static frontend",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
@@ -12,3 +13,4 @@
     "vite": "^8.0.16"
   }
 }
+
