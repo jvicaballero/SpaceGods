@@ -1,10 +1,10 @@
-# WEB103 Project 2 - *Name of App Here*
+# WEB103 Project 2 - *SpaceGods*
 
-Submitted by: **Your name here**
+Submitted by: **Jasper Caballero**
 
-About this web app: **App description here**
+About this web app: **A Webpage that displays the current meta comps for Set 17 of TFT. Data is hosted via Postgres and Render**
 
-Time spent: **X** hours
+Time spent: **3** hours
 
 ## Required Features
 
